@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 public class Solution {
 
-    public int solution(Point2D[] A) {
-        return Arrays.stream(A)
+    public int solution(Point2D[] points) {
+        return Arrays.stream(points)
                 .sorted(sortByValue())
                 .collect(Collectors.groupingBy(quadrant()))
                 .values()
@@ -20,15 +20,7 @@ public class Solution {
     }
 
     private Comparator<Point2D> sortByValue() {
-        return (p1, p2) -> {
-            if (p1.x < p2.x) {
-                return -1;
-            } else if (p1.x > p2.x) {
-                return 1;
-            } else {
-                return Integer.compare(p1.y, p2.y);
-            }
-        };
+        return (p1, p2) -> p1.x < p2.x ? -1 : p1.x > p2.x ? 1 : Integer.compare(p1.y, p2.y);
     }
 
     private Function<List<Point2D>, Integer> hitsPerQuadrant() {
@@ -36,17 +28,7 @@ public class Solution {
     }
 
     private Function<Point2D, Integer> quadrant() {
-        return p -> {
-            if (p.x > 0 && p.y > 0) {
-                return 1;
-            } else if (p.x > 0 && p.y < 0) {
-                return 2;
-            } else if (p.x < 0 && p.y < 0) {
-                return 3;
-            } else {
-                return 4;
-            }
-        };
+        return p -> p.x > 0 && p.y > 0 ? 1 : p.x > 0 && p.y < 0 ? 2 : p.x < 0 && p.y < 0 ? 3 : 4;
     }
 
 }
