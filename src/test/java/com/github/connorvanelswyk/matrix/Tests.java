@@ -1,4 +1,4 @@
-package com.github.connorvanelswyk.board;
+package com.github.connorvanelswyk.matrix;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -72,11 +72,11 @@ public class Tests {
         List<Integer> row1 = new Random().ints(size / 2, origin, bound).boxed().collect(Collectors.toList());
         List<Integer> row2 = new Random().ints(size / 2, origin, bound).boxed().collect(Collectors.toList());
         ints = IntStream.range(0, size / 2).boxed().mapToInt(i -> row1.get(i) + row2.get(i)).toArray();
-        this.upper = row1.stream().mapToInt(Integer::valueOf).sum();
-        this.lower = row2.stream().mapToInt(Integer::valueOf).sum();
-        expected = row1.stream().map(String::valueOf).collect(Collectors.joining(""))
-                 + ","
-                 + row2.stream().map(String::valueOf).collect(Collectors.joining(""));
+        upper = row1.stream().mapToInt(Integer::valueOf).sum();
+        lower = row2.stream().mapToInt(Integer::valueOf).sum();
+        expected = String.join(",",
+                row1.stream().map(String::valueOf).collect(Collectors.joining("")),
+                row2.stream().map(String::valueOf).collect(Collectors.joining("")));
     }
 
 }

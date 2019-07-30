@@ -1,4 +1,4 @@
-package com.github.connorvanelswyk.bob;
+package com.github.connorvanelswyk.slope;
 
 public class Point2D {
     public int x;

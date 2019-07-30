@@ -1,4 +1,4 @@
-package com.github.connorvanelswyk.bob;
+package com.github.connorvanelswyk.slope;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

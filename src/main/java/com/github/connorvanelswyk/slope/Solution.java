@@ -1,4 +1,4 @@
-package com.github.connorvanelswyk.bob;
+package com.github.connorvanelswyk.slope;
 
 import java.util.Arrays;
 import java.util.Comparator;
