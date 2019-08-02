@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Solution {
 
@@ -12,23 +11,32 @@ public class Solution {
         if (Arrays.stream(ints).reduce(0, Integer::sum) != upper + lower) {
             return "IMPOSSIBLE";
         }
-        List<Integer> u = new ArrayList<>();
-        List<Integer> l = new ArrayList<>();
-        IntStream.of(ints).forEach(i -> {
+        List<Integer> row1 = new ArrayList<>();
+        List<Integer> row2 = new ArrayList<>();
+        int row1Sum = 0;
+        int row2Sum = 0;
+        for (int i : ints) {
             if (i == 2) {
-                u.add(1);
-                l.add(1);
+                row1.add(1);
+                row2.add(1);
+                row1Sum++;
+                row2Sum++;
             } else if (i == 0) {
-                u.add(0);
-                l.add(0);
+                row1.add(0);
+                row2.add(0);
+            } else if (upper - row1Sum > lower - row2Sum) {
+                row1.add(1);
+                row2.add(0);
+                row1Sum++;
             } else {
-                u.add(0);
-                l.add(1);
+                row1.add(0);
+                row2.add(1);
+                row2Sum++;
             }
-        });
-        String uStr = u.stream().map(String::valueOf).collect(Collectors.joining(""));
-        String lStr = l.stream().map(String::valueOf).collect(Collectors.joining(""));
-        return String.join(",", uStr, lStr);
+        }
+        return String.join(",",
+                row1.stream().map(String::valueOf).collect(Collectors.joining("")),
+                row2.stream().map(String::valueOf).collect(Collectors.joining("")));
     }
 
 }

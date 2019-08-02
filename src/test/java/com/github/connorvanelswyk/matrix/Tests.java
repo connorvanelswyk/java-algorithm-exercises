@@ -35,6 +35,10 @@ public class Tests {
         log.debug("lower=[{}]", lower);
         log.debug("ints={}", Arrays.toString(ints));
         log.debug("assertEquals(\n[{}],\n[{}]\n)", expected, actual);
+        if (expected.equals("IMPOSSIBLE")) {
+            assertEquals(actual, expected);
+            return;
+        }
         String u = actual.substring(0, actual.indexOf(","));
         String l = actual.substring(actual.indexOf(",") + 1);
         IntStream.of(ints).forEach(i -> assertEquals(ints[i], (u.charAt(i) - '0') + (l.charAt(i) - '0')));
