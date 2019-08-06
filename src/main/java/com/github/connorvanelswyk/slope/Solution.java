@@ -7,7 +7,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
- * This class provides an efficient algorithm to solve geometric ray calculations in 2-dimensional Euclidean space.
+ * This class provides an algorithm to calculate geometric ray equations in 2-dimensional Euclidean space.
  */
 public class Solution {
 

@@ -5,8 +5,20 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This class provides an algorithm to recover bit matrices with 2 rows, n columns, and the sum index values per row.
+ */
 public class Solution {
 
+    /**
+     * This function constructs a 2-dimensional matrix by iterating through an array of integers and inserting binary
+     * values in each row with respect to the predefined tuple sums.
+     * values
+     * @param upper - an {@code Integer} representing the sum of values in row 1
+     * @param lower - an {@code Integer} representing the sum of values in row 2
+     * @param ints - an array where object is an {@code Integer} in range [0,2]
+     * @return a {@code String} representing a matrix, where rows are comma delimited, and values are characters
+     */
     public String solution(int upper, int lower, int[] ints) {
         if (Arrays.stream(ints).reduce(0, Integer::sum) != upper + lower) {
             return "IMPOSSIBLE";
