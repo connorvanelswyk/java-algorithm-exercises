@@ -17,7 +17,8 @@ public class Solution {
      * @param upper - an {@code Integer} representing the sum of values in row 1
      * @param lower - an {@code Integer} representing the sum of values in row 2
      * @param ints - an array where object is an {@code Integer} in range [0,2]
-     * @return a {@code String} representing a matrix, where rows are comma delimited, and values are characters
+     * @return a {@code String} value with a recovered matrix represented with comma delimited rows char values
+     * or {@literal IMPOSSIBLE}, if no solution exists.
      */
     public String solution(int upper, int lower, int[] ints) {
         if (Arrays.stream(ints).reduce(0, Integer::sum) != upper + lower) {
