@@ -16,6 +16,9 @@ import java.util.stream.IntStream;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * This class asserts our solution correctly recovers a bit matrix with 2 rows, n columns, and the sum values per row.
+ */
 @Log4j2
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
