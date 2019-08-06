@@ -15,7 +15,10 @@ import java.util.stream.IntStream;
 
 import static org.junit.Assert.assertEquals;
 
-
+/**
+ * This class asserts our solution correctly calculates the minimum amount of origin initiated (0,0) rays required to
+ * pass through 1 to 1e5 distinct points on a bi-dimensional graph with a points in range [-1e9,1e9].
+ */
 @Log4j2
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
